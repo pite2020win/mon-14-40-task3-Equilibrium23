@@ -1,3 +1,4 @@
+import json
 class School:
   def __init__(self,name_of_school):
       self.name_of_school = name_of_school
@@ -6,7 +7,7 @@ class School:
 
   def save_school_to_json(self):
     with open (self.name_of_school + "_info.json","w") as school_info: 
-        school_info.write("{}".format(json.dumps(self.classes_average_score ,indent = 4)) )
+        school_info.write(json.dumps(self.classes_average_score ,indent = 4) )
 
   def get_school_average(self):
       school_average = -1
