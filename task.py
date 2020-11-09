@@ -13,18 +13,31 @@
 # If you have enough courage and time, try storing (reading/writing)
 # data in text files (YAML, JSON).
 # If you have even more courage, try implementing user interface (might be text-like).
-#
-#Try to expand your implementation as best as you can. 
-#Think of as many features as you can, and try implementing them.
-#Make intelligent use of pythons syntactic sugar (overloading, iterators, generators, etc)
-#Most of all: CREATE GOOD, RELIABLE, READABLE CODE.
-#The goal of this task is for you to SHOW YOUR BEST python programming skills.
-#Impress everyone with your skills, show off with your code.
-#
-#Your program must be runnable with command "python task.py".
-#Show some usecases of your library in the code (print some things)
-#
-#When you are done upload this code to your github repository. 
-#
-#Delete these comments before commit!
-#Good luck.
+from school import School,Student,ClassDiary
+from utils import student_generator
+
+if __name__ == "__main__":
+  school = School("AGH")
+
+  class_A = ClassDiary("A")
+  class_B = ClassDiary("B")
+  class_C = ClassDiary("C")
+
+  student_gen = student_generator()
+
+  for _ in range(5):
+    class_A.add_student_to_class(next(student_gen))
+    class_B.add_student_to_class(next(student_gen))
+    class_C.add_student_to_class(next(student_gen))
+
+  school.add_class(class_A)
+  school.add_class(class_B)
+  school.add_class(class_C)
+
+  school.print_school()
+  school.save_school_to_json()
+
+
+# it is ok to get content of utils.py from my previos labs ?
+# its ok to reuse your own code yes
+# ok :D
